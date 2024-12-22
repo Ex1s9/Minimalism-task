@@ -9,6 +9,7 @@ interface Task {
 }
 
 interface TasksState {
+   map(arg0: (task: any) => import("react/jsx-runtime").JSX.Element): import("react").ReactNode;
    tasks: Task[];
 }
 
