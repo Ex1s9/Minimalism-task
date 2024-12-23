@@ -1,8 +1,15 @@
+import './App.css'
+import AddTaskForm from "./components/AddTaskForm"
+import TaskList from "./components/TaskList"
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div>
-      test
+    <div className='app'>
+      <h1 className="app-text">Task Manager</h1>
+      <div className='app-input'>
+        <AddTaskForm />
+        <TaskList />
+      </div>
     </div>
   )
 }

@@ -1,6 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-
 interface Task {
    id: string;
    title: string;
@@ -9,7 +8,6 @@ interface Task {
 }
 
 interface TasksState {
-   map(arg0: (task: any) => import("react/jsx-runtime").JSX.Element): import("react").ReactNode;
    tasks: Task[];
 }
 

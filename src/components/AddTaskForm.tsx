@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTask } from "../features/tasks/tasksSlice";
+import { taskAdded } from "../features/tasks/tasksSlice";
 
 
 const AddTaskForm: React.FC = () => {
@@ -10,21 +10,31 @@ const AddTaskForm: React.FC = () => {
 
    const handleSubmit = (e: React.FormEvent) => {
       e.preventDefault();
-      dispatch(addTask({ title, description }));
+      dispatch(taskAdded({
+         title, description,
+         id: "",
+         completed: false
+      }));
       setTitle('');
       setDescription('');
    };
 
    return (
-      <div>
+      <form onSubmit={handleSubmit}>
          <input
             type="text"
+            placeholder="Task Title"
             value={title}
-            onChange={handleTitleChange}
+            onChange={(e) => setTitle(e.target.value)}
          />
-         <button onClick={handleAddClick}>Add</button>
-      </div>
+         <textarea
+            placeholder="Task Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+         />
+         <button type="submit">Add Task</button>
+      </form>
    );
-}
+};
 
 export default AddTaskForm;
